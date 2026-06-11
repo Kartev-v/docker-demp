@@ -1,0 +1,11 @@
+from python:slim
+
+workdir /pandas-demo
+
+copy requirement.txt .
+
+run pip install -r requirement.txt
+
+copy pandas-demo.py .
+
+cmd ["python", "pandas-demo.py"]
