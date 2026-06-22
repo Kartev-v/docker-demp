@@ -1,0 +1,25 @@
+services:
+  airflow:
+    build: .
+    container_name: airflow
+    
+    # Force the container to use your Codespaces user ID (1000)
+    # and the container's standard root group (0) for folder compatibility
+    user: "1000:0"
+
+    ports:
+      - "8080:8080"
+
+    command: standalone
+
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      # Tells Airflow 3.x to align internally with your user ID
+      AIRFLOW_UID: 1000
+
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./data:/opt/airflow/data
+      - ./output:/opt/airflow/output

@@ -1,0 +1,3 @@
+Welcome Customer John
+Welcome Customer Alice
+Welcome Customer Bob
